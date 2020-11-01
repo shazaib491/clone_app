@@ -1,0 +1,87 @@
+<div class="container">
+  <form [formGroup]="product" class=" text-center shadow p-4" enctype="multipart/form-data">
+    <h1>Add Yor products</h1>
+    <!-- ************************************************************** -->
+    <div class="custom-file  mx-auto d-block">
+      <input type="file" (change)="uploadFile($event)"  class="custom-file-input "   >
+      <label class="custom-file-label" for="customFile">Banner</label>
+    </div>
+    <!-- ********************************************************************** -->
+    <br>
+    <!-- <div class="custom-file  mx-auto d-block">
+      <input type="file" class="custom-file-input" id="customFile">
+      <label class="custom-file-label" for="customFile">Prudct Images</label>
+    </div> -->
+    <br>
+    <div class="row">
+
+
+      <div class="form-group col-md-6">
+        <label for="">Product Name</label>
+        <input type="text" class="form-control rounded-0" formControlName="productName" value="">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="">Mrp</label>
+        <input type="number" class="form-control rounded-0" formControlName="mrp" value="">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="">Price</label>
+        <input type="number" class="form-control rounded-0" formControlName="price" value="">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="">Color</label>
+        <input type="text" class="form-control rounded-0" formControlName="color" value="">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="">Brand</label>
+        <input type="text" class="form-control rounded-0" formControlName="brand" value="">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="">Item Dimension</label>
+        <input type="text" class="form-control rounded-0" name="" formControlName="itemDimension" value="">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="">Item Weight</label>
+        <input type="text" class="form-control rounded-0" name="" formControlName="itemWeight" value="">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="">Voltage</label>
+        <input type="text" class="form-control rounded-0" name="" formControlName="voltage" value="">
+      </div>
+      <div class="form-group col-md-12">
+        <label for="">Capacity</label>
+        <input type="text" class="form-control rounded-0" name="" formControlName="capacity" value="">
+      </div>
+      <div class="form-group col-md-12" formArrayName="features">
+        <div class="" *ngFor="let item of product.controls.features['controls']; let i=index" [formGroupName]="i">
+          <label for="">Features</label>
+          <input type="text" class="form-control rounded-0" name="" formControlName="item" value="">
+          <button type="button" (click)="removeFeatures(i)" *ngIf="i>0" class="btn btn-danger border float-ri" name="button">X</button>
+        </div>
+        <br>
+        <button type="button" (click)="addFeatures()" class="btn btn-white border float-left" name="button">Add More (+)</button>
+      </div>
+
+      <div class="form-group col-lg-12" formArrayName="label">
+        <div class="" *ngFor="let item of product.controls.label['controls']; let i=index;" [formGroupName]=i>
+          <label for="">Add New Row *Optional</label>
+          <div class=" form-group">
+            <input type="text" formControlName="labelnm" class="form-control" name="" value="" placeholder="Label Name">
+          </div>
+          <div class=" form-group">
+            <input type="text" formControlName="labelValue" class="form-control" name="" value="" placeholder="Label Value">
+          </div>
+          <button type="button" (click)="removeLabels(i)" *ngIf="i>0" class="btn btn-danger border float-ri" name="button">X</button>
+
+        </div>
+        <button type="button" (click)="addLabels()" class="btn btn-white border float-left" name="button">Add More (+)</button>
+
+      </div>
+
+      <div class="col-md-12">
+        <button type="submit" class="btn btn-primary btn-block w-50 mx-auto d-block rounded-0 shadow" (click)="AddData()" name="button">Submit</button>
+      </div>
+    </div>
+  </form>
+
+</div>

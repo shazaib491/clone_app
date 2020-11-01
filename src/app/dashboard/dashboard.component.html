@@ -1,0 +1,30 @@
+<!-- You can now use your library component in app.component.html -->
+ <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig" (init)="slickInit($event)"
+   (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)" (beforeChange)="beforeChange($event)" >
+   <div ngxSlickItem *ngFor="let slide of slides"  class="slide text-center">
+     <img src="https://picsum.photos/id/{{slide}}/400/150.jpg"  alt="" width="100%">
+   </div> </ngx-slick-carousel>
+
+
+
+   <!-- 2nd Slide -->
+     <h1 class="text-center font-weight-bold mt-5" style="font-size:40px">Our Trending Products</h1>
+    <ngx-slick-carousel class="carousel p-3 shadow container-fluid bg-light border " #slickModal="slick-carousel" [config]="slideConfig2" (init)="slickInit($event)"
+      (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)" (beforeChange)="beforeChange($event)" >
+      <div ngxSlickItem *ngFor="let slide of slides"  class="slide text-center col-md-4   shadow p-1">
+        <img src="https://picsum.photos/id/{{slide}}/400/400.jpg"  alt="" width="100%">
+        <button type="button" class="btn btn-primary rounded-0 mt-3" name="button">Add To Cart</button>
+      </div> </ngx-slick-carousel>
+
+<div class="row">
+  <div class="col-md-6 p-3">
+    <img src="https://picsum.photos/id/1/400/200.jpg" width="100%" alt="">
+  </div>
+  <div class="col-md-6 d-flex align-items-center">
+    <ngx-slick-carousel class="carousel  shadow container-fluid bg-light border " #slickModal="slick-carousel" [config]="slideConfig3" (init)="slickInit($event)"
+      (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)" (beforeChange)="beforeChange($event)" >
+      <div ngxSlickItem *ngFor="let slide of slides"  class="slide text-center col-md-4   shadow ">
+        <img src="https://picsum.photos/id/{{slide}}/400/600.jpg"  alt="" width="100%">
+      </div> </ngx-slick-carousel>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row mt-5 p-5 shadow">
+    <div class="col-md-12 d-flex justify-content-center">
+      <h1 class="text-center font-weight-bold">Register Your A/C</h1>
+    </div>
+    <form [formGroup]="loginForm" (submit)="submit()" class="w-100">
+      <div class="col-md-12 col-12 p-2 d-flex justify-content-center ">
+        <mat-form-field appearance="fill" class="col-lg-7 col-md-7 col-12">
+          <mat-label>Enter your email</mat-label>
+          <input matInput class="" placeholder="pat@example.com" [formControl]="email" required>
+          <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-md-12 col-12 p-2 d-flex justify-content-center">
+        <mat-form-field hintLabel="Max 10 characters" appearance="fill" class="col-lg-7 col-md-7 col-12">
+          <mat-label>Enter Mobile No</mat-label>
+          <input type="number" matInput [formControl]="mobile" max="10" min='2' placeholder="+91 ">
+          <mat-error *ngIf="mobile.invalid">{{getErrorForMobile()}}</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-md-12 col-12 p-2 d-flex justify-content-center">
+        <mat-form-field appearance="fill" class="col-lg-7 col-md-7 col-12">
+          <mat-label>Enter your password</mat-label>
+          <input matInput [formControl]="password" [type]="hide ? 'password' : 'text'">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="password.invalid">{{getErrorForPassword()}}</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-md-12 col-12 p-2 d-flex justify-content-center">
+        <mat-form-field appearance="fill" class="col-lg-7 col-md-7 col-12">
+          <mat-label>Enter your password again</mat-label>
+          <input matInput [formControl]="cpassword" [type]="hide ? 'cpassword' : 'text'">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="cpassword.invalid">{{getErrorForcPassword()}}</mat-error>
+        </mat-form-field>
+      </div>
+      <button type="submit" class="mx-auto d-block w-50" mat-raised-button color="primary">Primary</button>
+    </form>
+  </div>
+</div>

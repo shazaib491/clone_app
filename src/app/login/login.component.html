@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row mt-5 p-5 shadow">
+    <div class="col-md-12 d-flex justify-content-center">
+      <h1 class="text-center font-weight-bold"> Login Form</h1>
+    </div>
+    <form [formGroup]="loginForm" (submit)="submit()" class="w-100">
+      <div class="col-md-12 col-12 p-2 d-flex justify-content-center ">
+        <mat-form-field appearance="fill" class="col-lg-7 col-md-7 col-12">
+          <mat-label>Enter your email</mat-label>
+          <input matInput class="" placeholder="pat@example.com" [formControl]="email" required>
+          <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-md-12 col-12 p-2 d-flex justify-content-center">
+        <mat-form-field appearance="fill" class="col-lg-7 col-md-7 col-12">
+          <mat-label>Enter your password</mat-label>
+          <input matInput [formControl]="password" [type]="hide ? 'password' : 'text'" required>
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="password.invalid">{{getErrorForPassword()}}</mat-error>
+        </mat-form-field>
+      </div>
+      <button type="submit"   class="mx-auto d-block w-50" mat-raised-button color="primary">Login</button>
+    </form>
+  </div>
+</div>

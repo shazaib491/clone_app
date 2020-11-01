@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 p-5 m-auto">
+      <form [formGroup]="records">
+        <div class="form-group">
+          <label for="">product</label>
+          <input type="text" class="form-control" formControlName="product" value="">
+        </div>
+        <div class="form-group">
+          <label for="">price</label>
+          <input type="text" class="form-control" formControlName="price" value="">
+        </div>
+        <div class="form-group">
+          <label for="">Items</label>
+          <div class="" formArrayName="items">
+            <div *ngFor="let item of records.controls.items['controls']; let i=index" [formGroupName]="i" >
+              <input type="text" class="form-control" formControlName="itemId"   value="">
+              <br>
+              <input type="text" class="form-control" formControlName="itemName"   value="">
+              <br>
+              <input type="text" class="form-control" formControlName="itemDes" value="">
+              <button type="button" class="btn btn-danger" *ngIf="i>0"  (click)="deleteRow(i)" name="button">Delete Row</button>
+
+            </div>
+
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="">Choclates</label>
+          <div class=""  formArrayName="chocolates">
+            <div *ngFor="let choclate of records.controls.chocolates['controls']; let i=index"  >
+              <input type="text" class="form-control" [formControlName]="i">
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between">
+          <button type="button" class="btn btn-success" (click)="addnewrow()" name="button">Add Row</button>
+        </div>
+
+        <br>
+        <button type="submit" class="btn btn-info" (click)="submit()">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

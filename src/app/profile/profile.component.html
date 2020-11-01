@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row border" [style.height.px]="'500'">
+    <div class="col-md-4 m-auto ">
+      <div class="card p-3 shadow"   [style.height.px]="'100%'">
+  <img class="card-img-top  mx-auto d-block  w-25 rounded-circle"  src="https://picsum.photos/200/300
+" alt="Card image cap">
+  <div class="card-body text-center">
+    <p class="card-text border  p-2 shadow"  >Email: {{data.email | json}}</p>
+    <p class="card-text border  p-2 shadow"  >Mobile: {{data.mobile | json}}</p>
+    <p class="card-text border  p-2 shadow"  >Password: {{data.password | json  }}</p>
+    <button type="button" class="btn btn-dark rounded-0" name="button">Change Password</button>
+  </div>
+</div>
+    </div>
+  </div>
+</div>
